@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: none;
+    }
+    .dee{
+      background: linear-gradient(300deg,
+      #76f665,
+      #b0e6f3,
+      #ffffff);
+      opacity: 0.9;
+    }
+    body{
+      background-image: url('images/MONEY.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+  </style>
+  <link rel="stylesheet" href="css/dee.css">
+</head>
+<body>
+  <div class="dee">
+    <form id="registerForm" action="/login" method="POST" onsubmit="return validateForm()">
+    <div>
+      Email<br><br>
+      <input type="email" name="useremail" id="email" placeholder="Enter email" style="width: 300px; height: 25px;">
+      <div id="emailError" class="error">Please enter your email</div>
+    </div>
+    <br>
+    <div>
+      Password<br><br>
+      <input type="password" name="userpassword" id="password" placeholder="Enter password" style="width: 300px; height: 25px;">
+      <div id="passwordError" class="error">Please enter your password</div>
+    </div>
+    <br>
+    <button type="submit" style="height: 50px;width: 100px;">Login</button>
+  </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      let isValid = true;
+
+      if (!email) {
+        document.getElementById("emailError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").style.display = "none";
+      }
+
+      if (!password) {
+        document.getElementById("passwordError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("passwordError").style.display = "none";
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

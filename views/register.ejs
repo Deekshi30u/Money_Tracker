@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <style>
+    body {
+      background: linear-gradient(300deg,
+          #03d1f6,
+          #b0e6f3,
+          #f9e776);
+    }
+  
+    .auth-box {
+      width: 280px;
+      margin: 100px auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    input,
+    button {
+      width: 90%;
+      max-width: 220px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+    }
+  
+    button:hover {
+      background: #0056b3;
+    }
+  
+    p {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+  </head>
+  
+  <body>
+          <form action="/register" method="POST" onsubmit="return validateForm()">
+            <input type="email" name="username" placeholder="Email" required />
+            <div id="emailError" class="error">Please enter your email</div>
+            <input type="password" name="password" placeholder="Password" required />
+            <div id="passwordError" class="error">Please enter your password</div>
+            <input type="text" name="firstname" placeholder="Firstname" required />
+            <div id="passwordError" class="error">Please enter your Firstname</div>
+            <input type="text" name="lastname" placeholder="Lastname" required />
+            <div id="passwordError" class="error">Please enter your Lastname</div>
+            <input type="text" name="address" placeholder="address" required />
+            <div id="passwordError" class="error">Please enter your address </div>
+            <input type="date" name="date" placeholder="DOB" required />
+            <div id="passwordError" class="error">Please enter your DOB</div>
+            <input type="text" name="city" placeholder="city" required />
+            <div id="passwordError" class="error">Please enter your City</div>
+            <input type="tel" name="phone" placeholder="+91 9876543210" pattern="^\+91\s[6-9][0-9]{9}$" required />
+            <div id="passwordError" class="error">Please enter your Ph.number</div>
+      
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="/login">Login</a></p>
+          </form>
+    </div>
+
+  <script>
+    function validateForm() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      let isValid = true;
+
+      if (!email) {
+        document.getElementById("emailError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").style.display = "none";
+      }
+
+      if (!password) {
+        document.getElementById("passwordError").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("passwordError").style.display = "none";
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

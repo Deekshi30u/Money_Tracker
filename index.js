@@ -4,7 +4,6 @@ import pg from "pg";
 import bcrypt from "bcrypt";
 
 const app = express();
-const port=3000;
 const saltRounds=10;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -239,7 +238,7 @@ app.get("/main", async (req, res) => {
 
 
 
-app.listen(port , ()=>
-{
-    console.log(`Server is running `);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
